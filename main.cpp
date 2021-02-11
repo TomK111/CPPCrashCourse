@@ -11,10 +11,8 @@ private:
 protected:
     bool isUnderMaintenance;
     std::string Name;
-
-
 public:
-    Car(std::string name, std::string color, double price){
+    Car(std::string name, std::string color, double price) {
         Name = name;
         Color = color;
         Price = price;
@@ -32,30 +30,25 @@ public:
         isUnderMaintenance = true;
     }
 
-    void repairCar(){
+    void repairCar() {
         std::cout << Name << " is repaired." << std::endl;
         isUnderMaintenance = false;
     }
 
     void move() {
-        if(isUnderMaintenance)
+        if (isUnderMaintenance)
             std::cout << Name << " is broken" << std::endl;
         else
             std::cout << Name << " is driving fine" << std::endl;
     }
-
-
-
 };
 
 class UnderwaterCar : public Car { ;
 public:
-    UnderwaterCar(std::string name, std::string color, double price):Car(name, color, price) {
+    UnderwaterCar(std::string name, std::string color, double price) : Car(name, color, price) {};
 
-    };
-
-    void move(){
-        if(isUnderMaintenance)
+    void move() {
+        if (isUnderMaintenance)
             std::cout << Name << " is broken" << std::endl;
         else
             std::cout << Name << " is gliding" << std::endl;
@@ -64,11 +57,10 @@ public:
 
 class FlyingCar : public Car { ;
 public:
-    FlyingCar(std::string name, std::string color, double price):Car(name, color, price) {
-    };
+    FlyingCar(std::string name, std::string color, double price) : Car(name, color, price) {};
 
-    void move(){
-        if(isUnderMaintenance)
+    void move() {
+        if (isUnderMaintenance)
             std::cout << Name << " is broken" << std::endl;
         else
             std::cout << Name << " is flying" << std::endl;
@@ -78,31 +70,25 @@ public:
 int main() {
     Car myCar{"Ford", "Blue", 5000};
     Car myCar2{"BMW", "Red", 2000};
+
     FlyingCar flyingCar{"Sky Fury", "Black", 90000};
-    flyingCar.getCarInfo();
     UnderwaterCar underwaterCar("Sea Storm", "Light Blue", 100000);
+
     underwaterCar.move();
     flyingCar.move();
 
     int variable = 5;
-    int* intPtr = &variable;
+    int *intPtr = &variable;
     std::cout << intPtr << std::endl;
 
-    Car* car1 = &flyingCar;
-    Car* car2 = &underwaterCar;
+    Car *car1 = &flyingCar;
+    Car *car2 = &underwaterCar;
 
     car1->crashCar();
-    car2->move();
+    car2->crashCar();
+}
 
-
-
-
-
-
-
-
-
-
+//---------------------------------------------------------//
 //    myCar.getCarInfo();
 //    myCar2.getCarInfo();
 //
@@ -111,9 +97,6 @@ int main() {
 //    myCar.move();
 //    myCar.repairCar();
 //    myCar.move();
-
-
-}
 //    int luckyNumbers[5] = {1,3,5,7,9};
 //    std::cout << luckyNumbers << std::endl;
 //    std::cout << &luckyNumbers[0] << std::endl;
@@ -125,17 +108,6 @@ int main() {
 //    << *luckyPointer << std::endl;
 //    luckyPointer++;
 //    std::cout << "Pointing to " << luckyPointer << ", value: " << *luckyPointer << std::endl;
-
-
-
-
-
-
-
-
-
-
-
 //    int myAge = 25;
 //    std::cout << "Before function: " << myAge << std::endl;
 //    celebrateBirthday(&myAge);
